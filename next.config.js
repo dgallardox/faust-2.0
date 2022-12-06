@@ -6,13 +6,17 @@ const { withFaust, getWpHostname } = require('@faustwp/core');
 module.exports = withFaust({
   reactStrictMode: true,
   sassOptions: {
-    includePaths: ['node_modules'],
+    includePaths: ["node_modules"],
   },
   images: {
     domains: [getWpHostname()],
   },
   i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
+    locales: ["en"],
+    defaultLocale: "en",
   },
+  assetPrefix:
+    process.env.NODE_ENV === "production"
+      ? "https://hxqb5793ls140qw65x8rzcoms.js.wpenginepowered.com"
+      : undefined,
 });
